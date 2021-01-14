@@ -7,7 +7,6 @@ const nonce = require('nonce')();
 const querystring = require('querystring');
 const request = require('request-promise');
 
-
 //api keys
 const apiKey = 'afb95e8d48e66f4492036875282a1972';
 //api secrete keys
@@ -84,7 +83,6 @@ return res.status(400).send('HMAC validation failed');
 res.status(400).send('Required parameters missing');
 }
 });
-
 
 
 
