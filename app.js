@@ -11,8 +11,12 @@ var indexRouter = require('./routes/index');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+const viewPath = path.join(__dirname, "./routes/views");
+
+app.set('views', viewPath);
 app.set('view engine', 'twig');
+app.set("view engine", "hbs")
+
  
 app.use(logger('dev'));
 app.use(express.json());

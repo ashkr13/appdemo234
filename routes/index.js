@@ -11,8 +11,9 @@ const request = require('request-promise');
 const myInstaller = require('./Controler/Installer');
 const Auth = require('./Controler/Auth');
 
+
 router.get('/test',(req,res)=>{
-    res.status(200).render("home");
+    res.render("home");
 })
 
 

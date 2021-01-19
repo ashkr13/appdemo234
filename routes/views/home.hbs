@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="bannerDivapp">
+        <p class="para"></p>
+    </div>
+    <div class="heading">
+        <h1 class="h1">Hello there welcome to the app</h1>
+    </div>
+    <div class="second">
+        <label for="">Enable/Disable</label>
+        <input type="checkbox" name="" id="chck"><br>
+        <label for="">Enter Description:</label>
+        <input type="text" id="description" placeholder="Enter the desired description">
+        <button type="submit" id="button">Save</button>
+    </div>
+
+    <script>
+
+        const btn = document.querySelector("#button");
+        btn.addEventListener("click", () => {
+            let data = document.getElementById("description");
+            let maindata = data.value;
+            let para = document.querySelector(".para");
+            para.textContent = maindata;
+            let divtoshow = document.querySelector(".bannerDivapp");
+            let value = document.querySelector("#chck").checked;
+            if (value == true) {
+                divtoshow.classList.add("show");
+            } else {
+                divtoshow.classList.remove("show");
+            }
+        })
+    </script>
+</body>
+
+</html>
