@@ -8,10 +8,6 @@ require('dotenv').config();
 // const cloudinary = require('cloudinary');
 var indexRouter = require('./routes/index');
 
-
- 
-
-
 var app = express();
 
 // view engine setup
@@ -66,5 +62,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-module.exports = app;
+let port = 5000;
+app.listen(port,()=>console.log(`Server is running on http://localhost:${port}`))
+// module.exports = app;

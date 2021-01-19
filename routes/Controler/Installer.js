@@ -6,7 +6,6 @@ const scopes = 'write_script_tags';
 //Forwarding Adderess
 const forwardingAddress = "https://appdemo234.herokuapp.com"; 
 
-
 exports.installer = (req, res) => {
     const shop = req.query.shop;
     if (shop) {
@@ -23,9 +22,4 @@ exports.installer = (req, res) => {
     } else {
       return res.status(400).send('Missing shop parameter. Please add ?shop=your-development-shop.myshopify.com to your request');
     }
-  }
-  exports.me = (req,res)=>{
-      res.send({
-          message:"Aprajita"
-      })
   }
