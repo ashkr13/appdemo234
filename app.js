@@ -62,6 +62,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-let port = 5000;
+let port = process.env.PORT || 5000;
 app.listen(port,()=>console.log(`Server is running on http://localhost:${port}`))
 // module.exports = app;
