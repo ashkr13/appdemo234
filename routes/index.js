@@ -1,4 +1,5 @@
 const dotenv = require('dotenv').config();
+const hbs = require("hbs");
 var express = require('express');
 var router = express.Router();
 const crypto = require('crypto');
@@ -11,9 +12,7 @@ const myInstaller = require('./Controler/Installer');
 const Auth = require('./Controler/Auth');
 
 router.get('/test',(req,res)=>{
-    res.status(200).json({
-        message:"flag1"
-    })
+    res.status(200).render("home");
 })
 
 
