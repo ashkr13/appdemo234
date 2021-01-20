@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var app = express();
 
 // view engine setup
+const staticPath = path.join(__dirname, "../public");
 const viewPath = path.join(__dirname, "./routes/views");
 
 app.set('views', viewPath);
