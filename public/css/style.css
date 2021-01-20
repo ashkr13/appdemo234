@@ -11,6 +11,19 @@ h1 {
   text-align: center;
   display: none;
 }
+.hidDiv {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .show {
   display: block;
+}
+input,
+label {
+  margin: 1em;
+}
+
+.image {
+  width: 5vw;
 }

@@ -10,7 +10,12 @@
 
 <body>
     <div class="bannerDivapp">
-        <p class="para"></p>
+        <div class="hidDiv">
+            <img class="image" src="" alt="">
+            <p class="para"></p>
+            <button class="button"></button>
+        </div>
+
     </div>
     <div class="heading">
         <h1 class="h1">Hello there welcome to the app</h1>
@@ -18,8 +23,15 @@
     <div class="second">
         <label for="">Enable/Disable</label>
         <input type="checkbox" name="" id="chck"><br>
+
         <label for="">Enter Description:</label>
-        <input type="text" id="description" placeholder="Enter the desired description">
+        <input type="text" id="description" placeholder="Enter the desired description"><br>
+
+        <label for="">Enter Button Name:</label>
+        <input type="text" id="buttonName" placeholder="Enter the desired button name"><br>
+
+        <label for="">Insert Image:</label>
+        <input type="file" name="" id="fileName"><br>
         <button type="submit" id="button">Save</button>
     </div>
 
@@ -38,6 +50,14 @@
             } else {
                 divtoshow.classList.remove("show");
             }
+            let buttonName = document.querySelector("#buttonName").value;
+            document.querySelector(".button").textContent = buttonName;
+
+            let imageName = document.querySelector("#fileName").value;
+            let imageUrl = "images/" + imageName;
+            alert(imageUrl);
+            document.querySelector(".image").getAttribute("src");
+
         })
     </script>
 </body>

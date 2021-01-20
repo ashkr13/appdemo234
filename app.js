@@ -11,12 +11,12 @@ var indexRouter = require('./routes/index');
 var app = express();
 
 // view engine setup
-const staticPath = path.join(__dirname, "../public");
+const staticPath = path.join(__dirname, "/public");
 const viewPath = path.join(__dirname, "./routes/views");
 
 app.set('views', viewPath);
 app.set('view engine', 'twig');
-app.set("view engine", "hbs")
+app.set("view engine", "hbs");
 
  
 app.use(logger('dev'));
@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // parse application/json
 app.use(bodyParser.json())
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(staticPath));
 
 // Router
 app.use(indexRouter);
