@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser = require('body-parser');
 require('dotenv').config();
+const multer = require("multer");
 // const cloudinary = require('cloudinary');
 var indexRouter = require('./routes/index');
 
@@ -18,7 +19,12 @@ app.set('views', viewPath);
 app.set('view engine', 'twig');
 app.set("view engine", "hbs");
 
- 
+const connect = require("./models/connection");
+const userroute = require("./API/appdata");
+
+app.use("/appdata", userroute); 
+connect();
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -67,6 +73,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-let port = process.env.PORT || 5000;
+let port = process.env.PORT || 7001;
 app.listen(port,()=>console.log(`Server is running on http://localhost:${port}`))
 // module.exports = app;

@@ -12,7 +12,7 @@ const myInstaller = require('./Controler/Installer');
 const Auth = require('./Controler/Auth');
 
 
-router.get('/test',(req,res)=>{
+router.get('/',(req,res)=>{
     res.render("home");
 })
 

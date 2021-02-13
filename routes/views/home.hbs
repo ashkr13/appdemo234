@@ -6,60 +6,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
 </head>
 
-<body>
+<body style="background-image: url(/images/img1.png); background-repeat:no-repeat;  background-size: cover; ">
+
+
     <div class="bannerDivapp">
         <div class="hidDiv">
-            <img class="image" src="" alt="">
+            {{!-- <img class="image" src="" alt=""> --}}
             <p class="para"></p>
             <button class="button"></button>
         </div>
-
     </div>
     <div class="heading">
-        <h1 class="h1">Hello there welcome to the app</h1>
+        <div class="hamburger-container">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="app-heading">
+            <h1 class="h1">Smart Mobile App Banner</h1>
+        </div>
     </div>
-    <div class="second">
-        <label for="">Enable/Disable</label>
-        <input type="checkbox" name="" id="chck"><br>
-
-        <label for="">Enter Description:</label>
-        <input type="text" id="description" placeholder="Enter the desired description"><br>
-
-        <label for="">Enter Button Name:</label>
-        <input type="text" id="buttonName" placeholder="Enter the desired button name"><br>
-
-        <label for="">Insert Image:</label>
-        <input type="file" name="" id="fileName"><br>
-        <button type="submit" id="button">Save</button>
+    <div class="allbtns">
+        <button id="btn1">App Link</button>
+        <button id="btn2">Banner Styling</button>
+        <button id="btn3">Button Styling</button>
+        <button id="btn4">Preview</button>
     </div>
+
+    <aside class="app-aside">
+        <button class="aside-button">x</button>
+        <div class="aside-content">
+            <div class="app-instructions">
+                How To Use App
+            </div>
+            <div class="our_appsEns">
+                Our Apps
+            </div>
+            <div class="app-support">
+                Support
+            </div>
+        </div>
+
+    </aside>
+    <div class="app-instructions-container" id="app-instructions-container">
+        <h1 class="app-instructions-heading">
+            Instructions how to use
+        </h1>
+        <p></p>
+
+
+
+    </div>
+
+
+    <div class="app-links-container">
+
+        <div class="app-second">
+            <form action="/appdata" method="post" enctype="multipart/form-data">
+
+                <label for="android">Enter Android App Url</label>
+                <input type="text" id="ens-android" name="androidUrl" placeholder="Enter the Android App Url"><br>
+
+                <label for="iphone">Enter Ios App Url</label>
+                <input type="text" id="ens-ios" name="iphoneUrl" placeholder="Enter the Ios App Url"><br>
+
+                <label for="image">Insert Image</label>
+                <input type="file" name="appImage" id="ens-image"><br>
+                <button type="submit" class="Next1">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="app-banner-container">
+
+        <div class="app-third">
+            <form action="/appdata/banner" method="post">
+                <label for="bannerBackground">Select Banner Background</label>
+                <input type="color" name="bannerBackground" id="app-bannerBackground"
+                    placeholder="Enter the desired Banner Text"><br>
+
+                <label for="bannerText">Enter the Banner Text</label>
+                <input type="text" id="app-bannerText" name="bannerText"
+                    placeholder="Enter the desired Banner Text"><br>
+
+                <label for="bannerTextColor">Select Banner Text Color</label>
+                <input type="color" id="app-bannerTextColor" name="bannerTextColor"><br>
+                <button type="submit" class="Next2">Save</button>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="app-button-container">
+
+        <div class="app-fourth">
+
+            <label for="buttonBackground">Select Button Background</label>
+            <input type="color" name="app-buttonBackground" id="app-buttonBackground"><br>
+
+            <label for="buttonText">Enter the Button Text</label>
+            <input type="text" id="app-buttonText" name="app-buttonText"
+                placeholder="Enter the desired button Text"><br>
+
+            <label for="buttonTextColor">Select Button Text Color</label>
+            <input type="color" id="app-buttonTextColor" name="app-buttonTextColor"><br>
+            <button type="submit" class="submit">Save</button>
+        </div>
+
+    </div>
+    </form>
 
     <script>
+        const btn1 = document.querySelector("#btn1");
+        const btn2 = document.querySelector("#btn2");
+        const btn3 = document.querySelector("#btn3");
+        const btn4 = document.querySelector("#btn4");
+        const Next1 = document.querySelector(".Next1");
+        const Next2 = document.querySelector(".Next2");
 
-        const btn = document.querySelector("#button");
-        btn.addEventListener("click", () => {
-            let data = document.getElementById("description");
-            let maindata = data.value;
-            let para = document.querySelector(".para");
-            para.textContent = maindata;
-            let divtoshow = document.querySelector(".bannerDivapp");
-            let value = document.querySelector("#chck").checked;
-            if (value == true) {
-                divtoshow.classList.add("show");
-            } else {
-                divtoshow.classList.remove("show");
-            }
-            let buttonName = document.querySelector("#buttonName").value;
-            document.querySelector(".button").textContent = buttonName;
+        const appcontainer = document.querySelector(".app-links-container");
+        const instructioncontainer = document.querySelector(".app-instructions-container");
+        const appBannercontainer = document.querySelector(".app-banner-container");
+        const appButtoncontainer = document.querySelector(".app-button-container");
+        const sideContent = document.querySelector(".fas");
+        const asideButton = document.querySelector(".aside-button");
+        const appAside = document.querySelector(".app-aside");
 
-            let imageName = document.querySelector("#fileName").value;
-            let imageUrl = "images/" + imageName;
-            alert(imageUrl);
-            document.querySelector(".image").getAttribute("src");
 
+        asideButton.addEventListener("click", () => {
+            appAside.classList.remove("showAside");
+        });
+        sideContent.addEventListener("click", () => {
+            appAside.classList.add("showAside");
         })
+        btn1.addEventListener("click", () => {
+
+            appcontainer.classList.remove("hide");
+            appcontainer.classList.add("style");
+            instructioncontainer.classList.add("hide");
+            appBannercontainer.classList.add("hide");
+            appButtoncontainer.classList.add("hide");
+
+        });
+
+
+        btn2.addEventListener("click", () => {
+
+            appBannercontainer.classList.remove("hide");
+            appBannercontainer.classList.add("style");
+            appcontainer.classList.add("hide");
+            instructioncontainer.classList.add("hide");
+            appButtoncontainer.classList.add("hide");
+
+
+        });
+
+
+
+        btn3.addEventListener("click", () => {
+
+            appButtoncontainer.classList.remove("hide");
+            appButtoncontainer.classList.add("style");
+            instructioncontainer.classList.add("hide");
+            appBannercontainer.classList.add("hide");
+
+
+        });
+
+        btn4.addEventListener("click", () => {
+            const appcontainer = document.querySelector(".app-links-container");
+            const instructioncontainer = document.querySelector(".app-instructions-container");
+
+            appcontainer.classList.add("style");
+            instructioncontainer.classList.add("hide");
+
+        });   
     </script>
+
+    <script src="/public/js/fun.js"></script>
 </body>
 
 </html>
